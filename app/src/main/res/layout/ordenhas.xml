@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card3"
+    android:layout_margin="5dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    card_view:cardCornerRadius="4dp"
+    android:elevation="8dp">
+
+    <LinearLayout
+        android:id="@+id/k"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/h"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/Gord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gord:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/Prot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Prot:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/Cas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cas:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"/>
+
+
+            <TextView
+                android:id="@+id/Lact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lact:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"/>
+
+
+            <TextView
+                android:id="@+id/St"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="St:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/p"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/GordText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/ProtText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            <TextView
+                android:id="@+id/CasText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/LactText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/StText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/es"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/teste123"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="TextView"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/teste223"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/teste323"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            <TextView
+                android:id="@+id/teste42"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/teste521"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:visibility="invisible"/>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/Esd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Esd:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            <TextView
+                android:id="@+id/Nu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nu:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            <TextView
+                android:id="@+id/Cel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cel:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            <TextView
+                android:id="@+id/Ccs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Css:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/EsdText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            <TextView
+                android:id="@+id/NuText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            <TextView
+                android:id="@+id/CelText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            <TextView
+                android:id="@+id/CcsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
