@@ -96,9 +96,7 @@ public class Fragment_GraficoOrdenha extends Fragment {
             query.keepSynced(true);
         }
 
-
         graphSeriesBar = new BarGraphSeries<>();
-
 
         graphView.addSeries(graphSeriesBar);
 
@@ -106,7 +104,7 @@ public class Fragment_GraficoOrdenha extends Fragment {
 
         graphSeriesBar.setValuesOnTopColor(Color.RED);
 
-        graphSeriesBar.setSpacing(50);
+        graphSeriesBar.setSpacing(40);
 
         graphSeriesBar.setValueDependentColor(new ValueDependentColor<DataPoint>() {
             @Override

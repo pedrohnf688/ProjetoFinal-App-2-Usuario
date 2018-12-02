@@ -15,10 +15,12 @@ import com.example.phnf2.projetofinalusuario.R;
 import com.example.phnf2.projetofinalusuario.adapter.AdapterUsers;
 import com.example.phnf2.projetofinalusuario.adapter.RecyclerUsuarioClickListener;
 import com.example.phnf2.projetofinalusuario.modelo.Usuario;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -33,6 +35,8 @@ public class Fragment_Relatorio extends Fragment {
     RecyclerView recyclerViewUsuario;
     DatabaseReference databaseUsuario;
     private FirebaseDatabase mFirebase;
+    Query query;
+    private FirebaseAuth firebaseAuth;
 
     public Fragment_Relatorio() {
         // Required empty public constructor
@@ -47,18 +51,20 @@ public class Fragment_Relatorio extends Fragment {
 
         recyclerViewUsuario = view.findViewById(R.id.recyclerViewListarUsuarios);
 
+        firebaseAuth = FirebaseAuth.getInstance();
 
+        String idUsuario = firebaseAuth.getCurrentUser().getUid();
         mFirebase = FirebaseDatabase.getInstance();
 
         if(mFirebase == null) {
 
             mFirebase.setPersistenceEnabled(true);
-            databaseUsuario = mFirebase.getReference("Usuarios");
+           query = mFirebase.getReference("Usuarios").orderByChild("idUser").equalTo(idUsuario);
 
         }else{
 
-            databaseUsuario = mFirebase.getReference("Usuarios");
-            databaseUsuario.keepSynced(true);
+            query = mFirebase.getReference("Usuarios").orderByChild("idUser").equalTo(idUsuario);
+            query.keepSynced(true);
         }
 
 
@@ -98,7 +104,7 @@ public class Fragment_Relatorio extends Fragment {
         super.onStart();
 
 
-        databaseUsuario.addValueEventListener(new ValueEventListener() {
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 

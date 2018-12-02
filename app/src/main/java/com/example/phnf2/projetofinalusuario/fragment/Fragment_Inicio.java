@@ -1,6 +1,7 @@
 package com.example.phnf2.projetofinalusuario.fragment;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,10 +10,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.phnf2.projetofinalusuario.R;
+import com.example.phnf2.projetofinalusuario.modelo.Usuario;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,6 +28,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -41,6 +48,8 @@ public class Fragment_Inicio extends Fragment {
     public final static int CODIGO_LOGAR = 5;
     private static final String ANONYMOUS = "anonymous";
     TextView textViewStatus;
+    TextView textViewEmail;
+    CircleImageView circleImgUser;
 
     public Fragment_Inicio() {
         // Required empty public constructor
@@ -55,6 +64,8 @@ public class Fragment_Inicio extends Fragment {
 
 
         textViewStatus = view.findViewById(R.id.status);
+        textViewEmail = view.findViewById(R.id.emailUser);
+        circleImgUser = view.findViewById(R.id.fotoUser);
 
         firebaseAuth = FirebaseAuth.getInstance();
         mUsername = ANONYMOUS;
@@ -65,7 +76,7 @@ public class Fragment_Inicio extends Fragment {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     //logado
-                    onSignInInitialize(user.getDisplayName());
+                    onSignInInitialize(user.getUid(),user.getDisplayName(),user.getEmail(),user.getPhotoUrl().toString());
                 } else {
                     //não-logado
                     onSignOutCleanUp();
@@ -110,12 +121,21 @@ public class Fragment_Inicio extends Fragment {
 
     }
 
-    public void onSignInInitialize(String userName) {
+    public void onSignInInitialize(String id, String userName,String email,String foto) {
         textViewStatus.setText("Seja Bem-vindo " + firebaseAuth.getCurrentUser().getDisplayName());
+        textViewEmail.setText(email);
+        loadProfileIcon(foto,circleImgUser);
+
+        mFirebase = FirebaseDatabase.getInstance();
+        mReference = mFirebase.getReference("Usuarios");
+
+        Usuario usuarioAtual = new Usuario(id,userName,email,foto);
+        mReference.child(id).setValue(usuarioAtual);
 
         mUsername = userName;
         attackDatabaseReadListener();
     }
+
 
     public void onSignOutCleanUp() {
         mUsername = ANONYMOUS;
@@ -173,5 +193,17 @@ public class Fragment_Inicio extends Fragment {
 
             }
         }
+    }
+
+
+    public static void loadProfileIcon(String url, ImageView imageView) {
+        Context context = imageView.getContext();
+        Glide.with(context)
+                .load(url)
+                .apply(new RequestOptions()
+                        .placeholder(R.drawable.common_full_open_on_phone)
+                        .dontAnimate()
+                        .fitCenter())
+                .into(imageView);
     }
 }
