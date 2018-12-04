@@ -23,11 +23,11 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="222dp"
         android:layout_marginStart="43dp"
         android:layout_marginEnd="43dp"
         android:layout_marginBottom="28dp"
-        android:text="O Aplicativo do Usuário têm como objetivo exibir o vínculo do usuário com os relatórios das ordenhas e o gráfico gerado."
+        android:text="O Aplicativo do Usuário têm como objetivo exibir o vínculo do usuário com os relatórios das ordenhas e o gráfico gerado.\n Aplicativo desenvolvido por Pedro Henrique.\n Contato:phnf2014@gmail.com \n Github:Pedrohnf688 e Pedrohnf \n Créditos da imagem:https://www.flaticon.com"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
