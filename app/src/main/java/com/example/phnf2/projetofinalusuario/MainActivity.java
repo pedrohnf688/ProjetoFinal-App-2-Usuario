@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 import com.example.phnf2.projetofinalusuario.fragment.Fragment_Inicio;
 import com.example.phnf2.projetofinalusuario.fragment.Fragment_Relatorio;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         mFirebase = FirebaseDatabase.getInstance();
+
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentPrincipal,new Fragment_Inicio()).addToBackStack(null).commit();
 
