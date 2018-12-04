@@ -61,10 +61,8 @@ public class Fragment_GraficoOrdenha extends Fragment {
     DatabaseReference databaseOrdenha;
     FirebaseDatabase mFirebase;
     BarGraphSeries<DataPoint> graphSeriesBar;
-    LineGraphSeries<DataPoint> graphSeriesLinear;
     Query query;
-    Button kkk;
-    private final static int PERMISSION_REQUEST = 11;
+
 
     @SuppressLint("ValidFragment")
     public Fragment_GraficoOrdenha(String id, String idOrdenha) {
@@ -79,10 +77,7 @@ public class Fragment_GraficoOrdenha extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment__grafico_ordenha, container, false);
 
-
-
         graphView = view.findViewById(R.id.GraficoOrdenha);
-        kkk = view.findViewById(R.id.buttonkkk);
 
         mFirebase = FirebaseDatabase.getInstance();
 
@@ -153,16 +148,6 @@ public class Fragment_GraficoOrdenha extends Fragment {
                     Toast.makeText(getActivity(), "Gráfico: Barra de Ccs: " + dataPoint, Toast.LENGTH_SHORT).show();
                 }
 
-            }
-        });
-
-        kkk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-               // graphView.takeSnapshotAndShare(getContext(), "exampleGraph", "GraphViewSnapshot");
-
-                Toast.makeText(getContext(), "Tirar Foto - Em Implementação !", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -1,5 +1,6 @@
 package com.example.phnf2.projetofinalusuario;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -56,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
         mFirebase = FirebaseDatabase.getInstance();
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentPrincipal,new Fragment_Inicio()).addToBackStack(null).commit();
+
 
     }
 
@@ -71,12 +74,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         //return super.onOptionsItemSelected(item);
-
-
         switch (item.getItemId()){
             case R.id.sign_out_menu:{
              //logout
                 AuthUI.getInstance().signOut(this);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentPrincipal,new Fragment_Inicio()).addToBackStack(null).commit();
                 return true;
             }
             default:{

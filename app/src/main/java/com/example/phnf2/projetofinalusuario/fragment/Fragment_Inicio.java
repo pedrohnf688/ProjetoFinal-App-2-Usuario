@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,7 +77,7 @@ public class Fragment_Inicio extends Fragment {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     //logado
-                    onSignInInitialize(user.getUid(),user.getDisplayName(),user.getEmail(),user.getPhotoUrl().toString());
+                    onSignInInitialize(user.getUid(),user.getDisplayName(),user.getEmail(),user.getPhotoUrl() != null ? user.getPhotoUrl().toString() : null);
                 } else {
                     //não-logado
                     onSignOutCleanUp();
@@ -122,18 +123,20 @@ public class Fragment_Inicio extends Fragment {
     }
 
     public void onSignInInitialize(String id, String userName,String email,String foto) {
-        textViewStatus.setText("Seja Bem-vindo " + firebaseAuth.getCurrentUser().getDisplayName());
-        textViewEmail.setText(email);
-        loadProfileIcon(foto,circleImgUser);
 
-        mFirebase = FirebaseDatabase.getInstance();
-        mReference = mFirebase.getReference("Usuarios");
+           textViewStatus.setText("Seja Bem-vindo " + firebaseAuth.getCurrentUser().getDisplayName());
+           textViewEmail.setText(email);
 
-        Usuario usuarioAtual = new Usuario(id,userName,email,foto);
-        mReference.child(id).setValue(usuarioAtual);
+           loadProfileIcon(foto, circleImgUser);
 
-        mUsername = userName;
-        attackDatabaseReadListener();
+           mFirebase = FirebaseDatabase.getInstance();
+           mReference = mFirebase.getReference("Usuarios");
+
+           Usuario usuarioAtual = new Usuario(id, userName, email, foto);
+           mReference.child(id).setValue(usuarioAtual);
+
+           mUsername = userName;
+           attackDatabaseReadListener();
     }
 
 
