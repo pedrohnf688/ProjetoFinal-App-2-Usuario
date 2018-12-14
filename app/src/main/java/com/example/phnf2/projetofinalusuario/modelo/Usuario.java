@@ -10,12 +10,13 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String idUser, String nomeUser, String emailUser, String PhotoUser) {
+    public Usuario(String idUser, String nomeUser, String emailUser, String photoUser) {
         IdUser = idUser;
         NomeUser = nomeUser;
         EmailUser = emailUser;
-        PhotoUser = PhotoUser;
+        PhotoUser = photoUser;
     }
+
 
     public String getIdUser() {
         return IdUser;
@@ -45,9 +46,7 @@ public class Usuario {
         return PhotoUser;
     }
 
-    public void setPhotoUser(String PhotoUser) {
-        PhotoUser = PhotoUser;
+    public void setPhotoUser(String photoUser) {
+        PhotoUser = photoUser;
     }
-
-
 }

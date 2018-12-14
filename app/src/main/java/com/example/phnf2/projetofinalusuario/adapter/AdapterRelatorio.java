@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.phnf2.projetofinalusuario.R;
@@ -43,6 +44,8 @@ public class AdapterRelatorio extends RecyclerView.Adapter {
         holderRelatorio.textTitulo2.setText(relatorioescolhido.getTituloRelatorio());
         holderRelatorio.textTipo2.setText(relatorioescolhido.getTipoRelatorio());
         holderRelatorio.textData2.setText(relatorioescolhido.getDataRelatorio());
+        holderRelatorio.imgR.setImageResource(R.drawable.ic_report);
+
 
     }
 
@@ -57,6 +60,7 @@ public class AdapterRelatorio extends RecyclerView.Adapter {
         final TextView textTitulo2;
         final TextView textTipo2;
         final TextView textData2;
+        final ImageView imgR;
 
 
         public ViewHolderRelatorio(@NonNull View itemView) {
@@ -65,7 +69,7 @@ public class AdapterRelatorio extends RecyclerView.Adapter {
             textTitulo2 = itemView.findViewById(R.id.TituloText);
             textTipo2 = itemView.findViewById(R.id.TipoText);
             textData2 = itemView.findViewById(R.id.DataText);
-
+            imgR = itemView.findViewById(R.id.imgRelataorio);
 
         }
     }

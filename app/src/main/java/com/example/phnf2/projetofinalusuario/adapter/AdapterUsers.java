@@ -9,9 +9,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.phnf2.projetofinalusuario.R;
+import com.example.phnf2.projetofinalusuario.fragment.Fragment_Inicio;
 import com.example.phnf2.projetofinalusuario.modelo.Usuario;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterUsers extends RecyclerView.Adapter {
 
@@ -41,9 +44,18 @@ public class AdapterUsers extends RecyclerView.Adapter {
         ViewHolder listT = (ViewHolder) holder;
 
         usuarioescolhido = listaUsuarios.get(position);
+        boolean fotoX = usuarioescolhido.getPhotoUser() != null;
 
         listT.textViewNome.setText(usuarioescolhido.getNomeUser());
         listT.textViewEmail.setText(usuarioescolhido.getEmailUser());
+
+        if(fotoX){
+            Fragment_Inicio.loadProfileIcon(usuarioescolhido.getPhotoUser(),listT.circleImageUser);
+        }else{
+            listT.circleImageUser.setImageResource(R.mipmap.iconeprincipal);
+        }
+
+
 
      }
 
@@ -57,13 +69,14 @@ public class AdapterUsers extends RecyclerView.Adapter {
 
      final TextView textViewNome;
      final TextView textViewEmail;
+     final CircleImageView circleImageUser;
 
     public ViewHolder(View v) {
         super(v);
 
         textViewNome = v.findViewById(R.id.NomeUsuario);
         textViewEmail = v.findViewById(R.id.EmailUsuario);
-
+        circleImageUser = v.findViewById(R.id.fotoUserListar);
     }
   }
 

@@ -133,7 +133,7 @@ public class Fragment_Inicio extends Fragment {
            mFirebase = FirebaseDatabase.getInstance();
            mReference = mFirebase.getReference("Usuarios");
 
-           Usuario usuarioAtual = new Usuario(id, userName, email, foto);
+           Usuario usuarioAtual = new Usuario(id, userName,email,foto);
            mReference.child(id).setValue(usuarioAtual);
 
            mUsername = userName;
