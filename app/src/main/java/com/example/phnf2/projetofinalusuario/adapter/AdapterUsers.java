@@ -52,7 +52,7 @@ public class AdapterUsers extends RecyclerView.Adapter {
         if(fotoX){
             Fragment_Inicio.loadProfileIcon(usuarioescolhido.getPhotoUser(),listT.circleImageUser);
         }else{
-            listT.circleImageUser.setImageResource(R.mipmap.iconeprincipal);
+            listT.circleImageUser.setImageResource(R.drawable.ic_iconuser);
         }
 
 

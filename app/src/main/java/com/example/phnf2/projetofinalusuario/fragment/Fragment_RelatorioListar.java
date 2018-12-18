@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.phnf2.projetofinalusuario.R;
 import com.example.phnf2.projetofinalusuario.adapter.AdapterRelatorio;
@@ -36,7 +37,7 @@ public class Fragment_RelatorioListar extends Fragment {
     RecyclerView recyclerViewRelatorio;
     DatabaseReference databaseRelatorio;
     private FirebaseDatabase mFirebase;
-
+    TextView rvazio;
 
 
     @SuppressLint("ValidFragment")
@@ -51,7 +52,8 @@ public class Fragment_RelatorioListar extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment__relatorio_listar, container, false);
 
-        recyclerViewRelatorio =view.findViewById(R.id.recyclerViewRelatorios);
+        recyclerViewRelatorio = view.findViewById(R.id.recyclerViewRelatorios);
+        rvazio = view.findViewById(R.id.rvazio);
 
         mFirebase = FirebaseDatabase.getInstance();
 
@@ -64,6 +66,7 @@ public class Fragment_RelatorioListar extends Fragment {
             databaseRelatorio = mFirebase.getReference("Relatorios").child(id);
             databaseRelatorio.keepSynced(true);
         }
+
 
 
 
@@ -118,11 +121,18 @@ public class Fragment_RelatorioListar extends Fragment {
                 recyclerViewRelatorio.setLayoutManager(layoutManager);
                 recyclerViewRelatorio.setItemAnimator(new DefaultItemAnimator());
 
+                if(listarRelatorios.size() == 0){
+                    rvazio.setVisibility(View.VISIBLE);
+                    rvazio.setText("Não tem Relatórios Cadastrados!");
+                }else{
+                    rvazio.setVisibility(View.GONE);
+                }
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+
 
             }
         });

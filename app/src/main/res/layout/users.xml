@@ -20,9 +20,9 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/fotoUserListar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/iconeprincipal" />
+            android:layout_width="65dp"
+            android:layout_height="75dp"
+            android:src="@drawable/ic_iconuser" />
         <LinearLayout
             android:id="@+id/b"
             android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/c"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 

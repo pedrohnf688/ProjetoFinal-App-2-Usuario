@@ -129,6 +129,4 @@ public class Fragment_Relatorio extends Fragment {
         });
     }
 
-
-
 }

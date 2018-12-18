@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.phnf2.projetofinalusuario.R;
 import com.example.phnf2.projetofinalusuario.adapter.AdapterOrdenhas;
@@ -34,7 +35,7 @@ public class Fragment_RelatorioOrdenha extends Fragment {
     RecyclerView recyclerViewOrdenha;
     DatabaseReference databaseOrdenha;
     private FirebaseDatabase mFirebase;
-
+    TextView ovazio;
 
     @SuppressLint("ValidFragment")
     public Fragment_RelatorioOrdenha(String id) {
@@ -50,7 +51,7 @@ public class Fragment_RelatorioOrdenha extends Fragment {
 
 
         recyclerViewOrdenha = view.findViewById(R.id.recyclerViewOrdenha);
-
+        ovazio = view.findViewById(R.id.ovazio);
 
         mFirebase = FirebaseDatabase.getInstance();
 
@@ -111,6 +112,13 @@ public class Fragment_RelatorioOrdenha extends Fragment {
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
                 recyclerViewOrdenha.setLayoutManager(layoutManager);
                 recyclerViewOrdenha.setItemAnimator(new DefaultItemAnimator());
+
+                if(listaOrdenha.size() == 0){
+                    ovazio.setVisibility(View.VISIBLE);
+                    ovazio.setText("Não tem Ordenhas Cadastradas!");
+                }else{
+                    ovazio.setVisibility(View.GONE);
+                }
 
 
             }
